@@ -39,3 +39,7 @@ def test_fixture_with_return3(fixture_with_return):
 
 def test_fixture_with_serializtion(fixture_with_deserializor):
     assert isinstance(fixture_with_deserializor, datetime)
+
+
+def test_fixture_with_pickle(fixture_with_pickle):
+    assert fixture_with_pickle.value == 42
