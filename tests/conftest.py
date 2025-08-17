@@ -38,17 +38,17 @@ def fixture_with_return():
     return 1
 
 
-class CustomObject:
+class CustomPickleObject:
     def __init__(self, value):
         self.value = value
-    
+
     def __eq__(self, other):
-        return isinstance(other, CustomObject) and self.value == other.value
+        return isinstance(other, CustomPickleObject) and self.value == other.value
 
 
 @shared_session_scope_pickle()
 def fixture_with_pickle():
     object_instance = yield
     if object_instance is SetupToken.FIRST:
-        object_instance = CustomObject(42)
+        object_instance = CustomPickleObject(42)
     yield object_instance

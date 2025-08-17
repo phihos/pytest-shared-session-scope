@@ -81,7 +81,7 @@ def my_fixture():
     yield object_instance
 
 def test_custom_object(my_fixture):
-    assert my_fixture.value == 42
+    assert my_fixture.value == CustomObject(42)
 ```
 
 Alternatively, you can use the `serialize` and `deserialize` arguments with `shared_session_scope_json`:

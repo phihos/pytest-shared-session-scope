@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from tests.conftest import CustomPickleObject
+
 
 def test_fixture_with_cleanup(fixture_with_cleanup):
     assert fixture_with_cleanup == 1
@@ -42,4 +44,4 @@ def test_fixture_with_serializtion(fixture_with_deserializor):
 
 
 def test_fixture_with_pickle(fixture_with_pickle):
-    assert fixture_with_pickle.value == 42
+    assert fixture_with_pickle == CustomPickleObject(42)
