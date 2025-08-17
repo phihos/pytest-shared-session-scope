@@ -1,4 +1,5 @@
 """Stores for sharing data between pytest sessions."""
+
 import pickle
 from contextlib import contextmanager
 import json
@@ -56,6 +57,7 @@ class JsonStore(FileStore):
     def write(self, identifier: str, data: Any, fixture_values: dict[str, Any]):
         """Write data to a file as json using json.dumps."""
         super().write(identifier, json.dumps(data), fixture_values)
+
 
 class PickleStore(LocalFileStoreMixin):
     """Store that reads and writes binary data using the builtin pickle module."""

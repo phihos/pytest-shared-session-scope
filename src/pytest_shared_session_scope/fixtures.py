@@ -258,6 +258,7 @@ def shared_session_scope_json(
         JsonStore(), parse, serialize, deserialize, metadata_storage, **kwargs
     )
 
+
 def shared_session_scope_pickle(
     parse: Callable = _identity,
     serialize: Callable = _identity,
